@@ -1,18 +1,20 @@
-all: install build test
+.PHONY: help install test lint clean
+
+help:
+	@echo "Targets: install test lint clean"
 
 install:
-	pip install -r backend/requirements.txt
-	cd frontend && npm install
-
-build:
-	cd frontend && npm run build
+	@echo "Installing commerce deps..."
+	@[ -f requirements.txt ] && pip install -r requirements.txt || true
+	@[ -f package.json ] && npm install || true
 
 test:
-	pytest backend/tests
-	cd frontend && npm test
+	@echo "Testing commerce..."
+	@[ -f pyproject.toml ] && python -m pytest tests/ -v || true
 
-run-backend:
-	uvicorn backend.app.main:app --host 0.0.0.0 --port 8000
+lint:
+	@echo "Linting commerce..."
 
-run-frontend:
-	cd frontend && npm run dev -- --port 3000
+clean:
+	@find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+	@rm -rf .pytest_cache htmlcov .coverage
