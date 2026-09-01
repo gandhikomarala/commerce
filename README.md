@@ -17,7 +17,7 @@ NovaStore — Architectural Hardware & Engineering Peripherals is a production-g
 
 ### 1. Set Up Python Virtual Environment
 ```bash
-git clone gandhikomarala/commerce.git
+git clone git@github.com:gandhikomarala/commerce.git
 cd commerce
 python -m venv venv
 # Windows:
