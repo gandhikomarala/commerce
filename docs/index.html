@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaStore — Minimalist Electronics & Workstation Gear</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background: #0a0a0c; color: #f4f4f5; min-height: 100vh; display: flex; flex-direction: column; }
+    nav { background: #121216; border-bottom: 1px solid #27272a; padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+    .cart-badge { background: #10b981; color: #000; font-weight: 800; padding: 6px 16px; border-radius: 20px; font-size: 14px; }
+    .catalog { max-width: 1300px; margin: 40px auto; width: 100%; padding: 0 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px; }
+    .product-card { background: #121216; border: 1px solid #27272a; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
+    .product-card:hover { transform: translateY(-4px); border-color: #52525b; }
+    .prod-img { height: 180px; background: #18181b; display: flex; align-items: center; justify-content: center; font-size: 64px; }
+    .prod-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+    .prod-title { font-size: 18px; font-weight: 800; color: #fff; }
+    .prod-desc { font-size: 13px; color: #a1a1aa; margin-top: 6px; flex: 1; }
+    .prod-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; }
+    .price { font-size: 22px; font-weight: 900; color: #10b981; }
+    .btn-buy { background: #ffffff; color: #000000; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 800; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="brand">NOVA / HARDWARE</div>
+    <div class="cart-badge">Cart (<span id="cart-count">0</span> items)</div>
+  </nav>
+  <div class="catalog">
+    <div class="product-card">
+      <div class="prod-img">💻</div>
+      <div class="prod-body">
+        <div class="prod-title">Nova StudioBook Max</div>
+        <div class="prod-desc">16-core neural processor, 64GB Unified RAM, 4K OLED HDR display with zero bezel.</div>
+        <div class="prod-footer">
+          <div class="price">$2,499</div>
+          <button class="btn-buy" onclick="add()">Buy Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="prod-img">🎧</div>
+      <div class="prod-body">
+        <div class="prod-title">Acoustic Pro Planar Headphones</div>
+        <div class="prod-desc">Planar magnetic drivers, active adaptive noise cancelation, titanium gimbal architecture.</div>
+        <div class="prod-footer">
+          <div class="price">$449</div>
+          <button class="btn-buy" onclick="add()">Buy Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="prod-img">⌨️</div>
+      <div class="prod-body">
+        <div class="prod-title">Mechanical Halo Keyboard</div>
+        <div class="prod-desc">Gasket-mounted CNC aluminum chassis, pre-lubed linear switches, hot-swappable PCB.</div>
+        <div class="prod-footer">
+          <div class="price">$189</div>
+          <button class="btn-buy" onclick="add()">Buy Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="prod-img">🖥️</div>
+      <div class="prod-body">
+        <div class="prod-title">UltraWide Curve Display 38"</div>
+        <div class="prod-desc">144Hz Nano-IPS panel, 99% DCI-P3 color accuracy, 90W USB-C power delivery.</div>
+        <div class="prod-footer">
+          <div class="price">$1,199</div>
+          <button class="btn-buy" onclick="add()">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    let items = 0;
+    function add() { items++; document.getElementById('cart-count').innerText = items; }
+  </script>
+</body>
+</html>
